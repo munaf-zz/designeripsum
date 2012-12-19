@@ -1,3 +1,4 @@
+
 /* ==========================================================================
    HTML5 Boilerplate styles - h5bp.com (generated via initializr.com)
    ========================================================================== */
@@ -60,18 +61,140 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+body {
+    font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-weight: 200;
+    font-size: 18px;
+}
 
+header {
+    width: 523px;
+    margin: 0 auto;
+}
 
+.container {
+    width: 523px;
+    margin: 0 auto;
+}
 
+h1, button, small {
+    display: inline-block;
+}
 
+h1 {
+    font-size: 36px;
+    font-weight: 700;
+    padding-left: 6px;
+    line-height: 1;
+    width: 100%;
+}
 
+small {
+    float: right;
+    margin-top: 12px;
+    color: gray;
+    font-weight: normal;
+    font-size: 10px;
+    margin-right: 10px;
+}
 
+small.success {
+    color: green;
+    font-weight: bold;
+}
 
+button {
+    top: 0;
+    right: 0;
+    background-color: #d9d9d9;
+    color: gray;
+    font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-size: 22px;
+    height: 36px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: center;
+    border: 0;
+    cursor: pointer;
+    float: right;
+    width: 36px;
+    margin-left: 5px;
+}
 
+button.minus:hover {
+    background-color: red;
+    color: white;
+}
 
+button.minus:active {
+    background-color: white;
+    color: red;
+}
 
+button.plus:hover {
+    background-color: lime;
+    color: white;
+}
 
+button.plus:active {
+    background-color: white;
+    color: lime;
+}
 
+button.copy:hover {
+    /*background-color: #5488E8;*/
+    background-color: black;
+    color: white;
+}
+
+button.copy:active {
+    background-color: white;
+    color: black;
+    /*color: #5488E8;*/
+}
+
+.container div {
+    background-color: white;
+    border: 3px dashed white;
+    margin: 0 auto;
+    padding: 0 5px;
+}
+
+div.selectedCopy {
+    /*border: 3px dashed #5488E8;*/
+    border: 3px dashed black;
+}
+
+div.copySuccess {
+    /*border: 3px dashed #5488E8;*/
+    background-color: lightGreen;
+    border: 3px dashed green;
+}
+
+div.insertParagraph {
+    border-top: 3px solid lime;
+}
+
+p {
+    line-height: 27px;
+    margin-bottom: 27px;
+}
+
+p.selectedDelete {
+    background-color: pink;
+}
+
+footer {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+footer a {
+    color: gray;
+    font-size: 12px;
+    font-weight: bold;
+}
 
 
 /* ==========================================================================
