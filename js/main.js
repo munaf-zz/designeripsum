@@ -1,5 +1,7 @@
 $(document).ready(function() {
 
+    ZeroClipboard.setMoviePath( 'vendor/ZeroClipboard.swf' );
+
     var words = [
         'dieter rams',
         'IDEO',
