@@ -1,7 +1,5 @@
 $(document).ready(function() {
 
-    ZeroClipboard.setMoviePath( 'vendor/ZeroClipboard.swf' );
-
     var words = [
         'dieter rams',
         'IDEO',
@@ -166,8 +164,6 @@ $(document).ready(function() {
         if ( !length ) length = 3;
 
         for ( i = 0; i < length; i++ ) {
-
-            // De-duplication
             do {
                 index = Math.floor( Math.random() * words.length );
             } while( indexes.hasOwnProperty(index + '') );
@@ -176,7 +172,6 @@ $(document).ready(function() {
 
             indexes[index + ''] = true;
 
-            // Capitalize first word in sentence
             if ( i == 0 ) {
                 word = capitalize(word);
             }
@@ -215,8 +210,11 @@ $(document).ready(function() {
         return output;
     }
 
-    var $div = $('.container div');
-    var $help = $('small');
+    var $div = $('.container div'),
+        $help = $('small'),
+        $add = $('button.plus'),
+        $remove = $('button.minus'),
+        $copy = $('button.copy');
 
     $div.append('<p>' + makeParagraph() + '</p>');
 
@@ -224,20 +222,20 @@ $(document).ready(function() {
         $help.removeClass('success').empty();
     });
 
-    $('button.plus').on('click', function() {
+    $add.on('click', function() {
         $div.prepend('<p>' + makeParagraph() + '</p>');
     });
 
-    $('button.plus').on('mouseover', function() {
+    $add.on('mouseover', function() {
         $div.addClass('insertParagraph');
         $help.html('add');
     });
 
-    $('button.plus').on('mouseout', function() {
+    $add.on('mouseout', function() {
         $div.removeClass('insertParagraph');
     });
 
-    $('button.minus').on('click', function() {
+    $remove.on('click', function() {
         $div.find('p:first-child').remove();
 
         if ( $(this).is(':hover') === true ) {
@@ -245,27 +243,33 @@ $(document).ready(function() {
         }
     });
 
-    $('button.minus').on('mouseover', function() {
+    $remove.on('mouseover', function() {
         $div.find('p:first-child').addClass('selectedDelete');
         $help.html('delete');
     });
 
-    $('button.minus').on('mouseout', function() {
+    $remove.on('mouseout', function() {
         $div.find('p:first-child').removeClass('selectedDelete');
     });
 
-    $('button.copy').on('mouseover', function() {
+    $copy.on('mouseover', function() {
         $div.addClass('selectedCopy');
         $help.html('copy');
     });
 
-    $('button.copy').on('mouseout', function() {
+    $copy.on('mouseout', function() {
         $div.removeClass('selectedCopy copySuccess');
     });
 
-    $('button.copy').on('click', function() {
-        $div.addClass('copySuccess');
-        $help.addClass('success').html('&#10003; copied');
+    $copy.zclip({
+        //path: 'js/vendor/ZeroClipboard.swf',
+        path: 'http://zeroclipboard.googlecode.com/svn-history/r10/trunk/ZeroClipboard.swf',
+        copy: function() {
+            return $('p').text();
+        },
+        afterCopy: function() {
+            $div.addClass('copySuccess');
+            $help.addClass('success').html('&#10003; copied');
+        }
     });
-
 });

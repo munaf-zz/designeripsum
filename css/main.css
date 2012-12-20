@@ -69,6 +69,7 @@ body {
 
 header {
     width: 523px;
+    height: 85px;
     margin: 0 auto;
 }
 
@@ -141,12 +142,14 @@ button.plus:active {
     color: lime;
 }
 
+button.copy.hover,
 button.copy:hover {
     /*background-color: #5488E8;*/
     background-color: black;
     color: white;
 }
 
+button.copy.active,
 button.copy:active {
     background-color: white;
     color: black;
@@ -177,6 +180,7 @@ div.insertParagraph {
 
 p {
     line-height: 27px;
+    margin-top: 0;
     margin-bottom: 27px;
 }
 
@@ -341,4 +345,8 @@ footer a {
     h3 {
         page-break-after: avoid;
     }
+}
+
+p {
+    margin-top: 0;
 }
