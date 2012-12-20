@@ -203,7 +203,7 @@ $(document).ready(function() {
                 len = randomBetween(min, max);
             }
 
-            output += ' ' + makeSentence(len);
+            output += makeSentence(len) + ' ';
             numWords -= len;
         }
 
@@ -269,7 +269,7 @@ $(document).ready(function() {
             //return $div.text();
             var output = '';
             $div.find('p').each(function(i, el) {
-                output += $(this).text().trim() + '\n\n';
+                output += $(this).text().trim().replace('  ', ' ') + '\n\n';
             });
 
             return output;
