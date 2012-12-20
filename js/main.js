@@ -265,7 +265,14 @@ $(document).ready(function() {
         //path: 'js/vendor/ZeroClipboard.swf',
         path: 'http://zeroclipboard.googlecode.com/svn-history/r10/trunk/ZeroClipboard.swf',
         copy: function() {
-            return $('p').text();
+            //return $('p').text();
+            //return $div.text();
+            var output = '';
+            $div.find('p').each(function(i, el) {
+                output += $(this).text().trim() + '\n\n';
+            });
+
+            return output;
         },
         afterCopy: function() {
             $div.addClass('copySuccess');
