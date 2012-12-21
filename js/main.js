@@ -18,7 +18,6 @@ $(document).ready(function() {
             } while( indexes.hasOwnProperty(index + '') );
 
             word = words[index];
-
             indexes[index + ''] = true;
 
             if ( i == 0 ) {
@@ -26,7 +25,6 @@ $(document).ready(function() {
             }
 
             sentence += ' ' + word;
-
             lastWord = word;
         }
 
@@ -118,7 +116,7 @@ $(document).ready(function() {
             //return $div.text();
             var output = '';
             $div.find('p').each(function(i, el) {
-                output += $(this).text().trim().replace('  ', ' ') + '\n\n';
+                output += $(this).text().trim().replace('. ', '.') + '\n\n';
             });
 
             return output;
