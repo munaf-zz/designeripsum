@@ -110,7 +110,7 @@ $(document).ready(function() {
 
     $copy.zclip({
         //path: 'js/vendor/ZeroClipboard.swf',
-        path: 'http://zeroclipboard.googlecode.com/svn-history/r10/trunk/ZeroClipboard.swf',
+        path: 'http://www.designeripsum.com/ZeroClipboard.swf',
         copy: function() {
             //return $('p').text();
             //return $div.text();
