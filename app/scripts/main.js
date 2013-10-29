@@ -5,10 +5,29 @@ require.config({
     }
 });
 
-require(['app', 'jquery', 'markov'], function (app, $, Markov) {
+require(['app', 'jquery', 'markov'], function (app, $) {
     'use strict';
-    // use app here
-    console.log(app);
-    console.log('Running jQuery %s', $().jquery);
-    console.log('Markov Lib: ', Markov);
+
+    var designerQuotes;
+    var markov = {}, designer;
+
+    $.ajax({
+    	url: 'scripts/designer-text.json',
+    	dataType: 'json',
+    	async: false
+    }).done(function(data) {
+    	console.log("got here!");
+    	designerQuotes = data;
+    });
+
+    console.log("designer quotes here: ", designerQuotes);
+
+    for (designer in designerQuotes) {
+    	markov[designer] = new Markov({
+    		inputText: designerQuotes[designer]['quotes'].join(' '),
+    		endsWithCompleteSentence: true
+    	});
+    }
+
+    console.log(markov['edwardtufte'].generate(100));
 });
