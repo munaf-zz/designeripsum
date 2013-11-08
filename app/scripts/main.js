@@ -12,7 +12,7 @@ require(['app', 'jquery', 'markov'], function(app, $) {
   var $designerList, $output;
 
   $designerList = $('.designer-list');
-  $output       = $('article');
+  $output = $('article');
 
   json = getJson('scripts/designer-text.json');
   designers = createMarkov(json);
@@ -40,8 +40,8 @@ require(['app', 'jquery', 'markov'], function(app, $) {
 
   function createMarkov(designerJson) {
     var markov = {},
-        allDesignerQuotes = [],
-        quotes, designer;
+      allDesignerQuotes = [],
+      quotes, designer;
 
     // Seperate generators for each designer
     for (designer in designerJson) {
@@ -65,7 +65,7 @@ require(['app', 'jquery', 'markov'], function(app, $) {
     markov['all'] = new Markov({
       inputText: allDesignerQuotes.join(' '),
       endsWithCompleteSentence: true
-    }); 
+    });
 
     return markov;
   }
