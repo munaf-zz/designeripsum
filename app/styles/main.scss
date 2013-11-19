@@ -3,15 +3,51 @@
 
 
 body {
-    background: #fafafa;
+    background: #fefefe;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #333;
+    font-weight: 200;
 }
 
 article p {
     font-weight: 200;
     font-size: 1em;
 
+    &.new {
+        background-color: #D6FAC8;
+    }
+}
+
+footer {
+    font-size: 1.1em;
+}
+
+.button-container {
+    //text-align: center;
+}
+
+a {
+    &.add-button,
+    &.designer-changer {
+        display: inline-block;
+        width: 49%;
+    }
+
+    &.add-button {
+        margin-right: 1%;
+        text-align: right;
+        font-size: 1.5em;
+        font-weight: 600;
+        color: gray;
+    }
+
+    &.designer-changer {
+        text-align: left;
+        font-size: 1.5em;
+        font-weight: 600;
+        color: lighten(gray, 20%);
+        //@include dropdown-button(0, lighten(gray, 20%), false);
+    }
 }
 
 .footer-content {
@@ -42,3 +78,4 @@ article p {
     color: #000;
     padding: 0.2em 0;
 }
+

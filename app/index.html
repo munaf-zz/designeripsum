@@ -28,7 +28,6 @@
       <div class="row">
         <div class="large-8 large-offset-2 columns">
           <h1>Designer Ipsum</h1>
-          <hr />
         </div>
       </div>
 
@@ -43,9 +42,8 @@
         </div>
       </div>
       <div class="row">
-        <div class="large-8 large-offset-2 columns" role="content">
-            <a href="#" data-dropdown="designers" class="button dropdown large-12 columns">Dropdown Button</a><br>
-            <ul id="designers" class="f-dropdown designer-list"></ul>
+        <div class="large-8 large-offset-2 columns button-container" role="content">
+            <a href="#" class="add-button">+ Add </a><a href="#" class="designer-changer">Ive »</a>
         </div>
       </div>
 
@@ -66,6 +64,7 @@
         <!-- build:js scripts/vendor.js -->
         <!-- bower:js -->
         <script src="bower_components/jquery/jquery.js"></script>
+        <script src="scripts/markov.min.js"></script>
         <script src="bower_components/foundation/js/foundation/foundation.js"></script>
         <script src="bower_components/foundation/js/foundation/foundation.dropdown.js"></script>
         <script>$(document).foundation();</script>
