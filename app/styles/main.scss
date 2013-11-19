@@ -16,6 +16,13 @@ article p {
     &.new {
         background-color: #D6FAC8;
     }
+
+    &::selection {
+        background: #fff2a8;
+    }
+    &::-moz-selection {
+        background: #fff2a8;
+    }
 }
 
 footer {
@@ -27,26 +34,32 @@ footer {
 }
 
 a {
-    &.add-button,
-    &.designer-changer {
-        display: inline-block;
-        width: 49%;
-    }
+    //&.add-button,
+    //&.designer-changer {
+    //    display: inline-block;
+    //    width: 49%;
+    //}
 
-    &.add-button {
-        margin-right: 1%;
-        text-align: right;
-        font-size: 1.5em;
+    &.add-button,
+    &.remove-button {
+        //margin-right: 1%;
+        //text-align: left;
+        display: inline-block;
+        background-color: #eee;
+        text-align: center;
+        margin-right: 2px;
+        line-height: 0;
+        font-size: 1.7em;
+        width: 1.5em;
         font-weight: 600;
         color: gray;
     }
 
     &.designer-changer {
-        text-align: left;
-        font-size: 1.5em;
+        //text-align: left;
+        font-size: 1.2em;
         font-weight: 600;
         color: lighten(gray, 20%);
-        //@include dropdown-button(0, lighten(gray, 20%), false);
     }
 }
 

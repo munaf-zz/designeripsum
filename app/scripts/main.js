@@ -26,7 +26,7 @@ require(['app', 'jquery'], function(app, $) {
     event.preventDefault();
     deselectText();
     generateText();
-    $(window).scrollTop($(document).height());
+    //$(window).scrollTop($(document).height());
   });
 
   $('.designer-changer').on('click', function(event) {
@@ -58,7 +58,7 @@ require(['app', 'jquery'], function(app, $) {
       newText = '<p>' + designers[selected].generate(numWords) + '</p>';
     }
 
-    $output.append(newText);
+    $output.prepend(newText);
     
   }
 
