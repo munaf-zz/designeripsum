@@ -18,14 +18,20 @@ require(['app', 'jquery'], function(app, $) {
   randomDesigner();
   generateText();
 
+  $output.on('click', function(event) {
+    selectText('article');
+  });
+
   $('.add-button').on('click', function(event) {
     event.preventDefault();
+    deselectText();
     generateText();
     $(window).scrollTop($(document).height());
   });
 
   $('.designer-changer').on('click', function(event) {
     event.preventDefault();
+    deselectText();
     randomDesigner();
   });
 
@@ -46,7 +52,7 @@ require(['app', 'jquery'], function(app, $) {
         selected = designerSelector.list[designerSelector.selected].index,
         newText; console.log(selected);
 
-    if (selected === 'random') {
+    if (selected === 'buzzwords') {
       newText = '<p>' + randomParagraph(numWords) + '</p>';
     } else {
       newText = '<p>' + designers[selected].generate(numWords) + '</p>';
@@ -105,8 +111,8 @@ require(['app', 'jquery'], function(app, $) {
     for (designer in designerJson) {
       if (designer === 'random') {
         designerSelector.list.push({
-          lastName: 'Random',
-          index: 'random'
+          lastName: 'Buzzwords',
+          index: 'buzzwords'
         });
 
         randomWords = designerJson['random'].words;
@@ -142,4 +148,40 @@ require(['app', 'jquery'], function(app, $) {
     return markov;
   }
 
+  // Code adapted from: http://stackoverflow.com/a/987376
+  // Stolen from downtonipsum.com :-)
+  function selectText(element) {
+
+    var doc = document,
+      text = doc.getElementsByTagName(element)[0],
+      range,
+      selection;
+
+    if (doc.body.createTextRange) { //ms
+      range = doc.body.createTextRange();
+      range.moveToElementText(text);
+      range.select();
+    } else if (window.getSelection) { //all others
+      selection = window.getSelection();
+      range = doc.createRange();
+      range.selectNodeContents(text);
+      selection.removeAllRanges();
+      selection.addRange(range);
+    }
+    
+  };
+
+  // Code adapted from: http://help.dottoro.com/ljigixkc.php
+  // Stolen from downtonipsum.com :-)
+  function deselectText() {
+    if (window.getSelection) {  // All browsers, except <= IE8
+      var selection = window.getSelection();                                        
+      selection.removeAllRanges();
+    } else {
+      if (document.selection.createRange) { // <= IE8
+        var range = document.selection.createRange ();
+        document.selection.empty ();
+      }
+    }
+  };
 });
