@@ -7,15 +7,17 @@ require.config({
 require(['app', 'jquery'], function(app, $) {
   'use strict';
 
-  var designerSelector = {list: [], selected: null};
-  var $output, designers, randomWords, json;
+  var designerSelector = {list: {}, selected: 0};
+  var $output, $selection, $list, designers, randomWords, json, data;
 
   $output = $('article');
+  $list = $('.designer-list');
+  $selection = $('.select-designer');
 
   json = getJson('scripts/designer-text.json');
   designers = createMarkov(json);
 
-  randomDesigner();
+  selectDesigner('all');
   generateText();
 
   $output.on('click', function(event) {
@@ -29,28 +31,27 @@ require(['app', 'jquery'], function(app, $) {
     //$(window).scrollTop($(document).height());
   });
 
-  $('.designer-changer').on('click', function(event) {
+  $('.select-designer').on('click', function(event) {
     event.preventDefault();
+
+    var name = $(this).attr('class').split(' ')[1];console.log( name);
+
+    selectDesigner(name);
+    $('.selected').removeClass('selected');
+    $(this).addClass('selected');
     deselectText();
-    randomDesigner();
   });
 
-  function randomDesigner() {
-    var selected;
-
-    do {
-      selected = Math.floor(Math.random()*designerSelector.list.length);
-    } while (selected === designerSelector.selected) 
-
-    designerSelector.selected = selected;
-    $('.designer-changer')
-      .text(' ' + designerSelector.list[designerSelector.selected].lastName + ' »');
+  function selectDesigner(name) {
+    designerSelector.selected = name;
+    $('.selected').removeClass('selected');
+    $(this).addClass('selected');
   }
 
   function generateText() {
     var numWords = 30 + Math.floor(Math.random() * 50),
-        selected = designerSelector.list[designerSelector.selected].index,
-        newText; console.log(selected);
+        selected = designerSelector.selected, 
+        newText; console.log(designers);
 
     if (selected === 'buzzwords') {
       newText = '<p>' + randomParagraph(numWords) + '</p>';
@@ -110,10 +111,9 @@ require(['app', 'jquery'], function(app, $) {
     // Seperate generators for each designer
     for (designer in designerJson) {
       if (designer === 'random') {
-        designerSelector.list.push({
-          lastName: 'Buzzwords',
-          index: 'buzzwords'
-        });
+        designerSelector.list['buzzwords'] = {
+          lastName: 'Buzzwords'
+        };
 
         randomWords = designerJson['random'].words;
 
@@ -121,29 +121,37 @@ require(['app', 'jquery'], function(app, $) {
       }
 
       quotes = designerJson[designer].quotes;
-      allDesignerQuotes.concat(quotes);
+      allDesignerQuotes = allDesignerQuotes.concat(quotes);
 
       markov[designer] = new Markov({
         inputText: quotes.join(' '),
         endWithCompleteSentence: true
       });
 
-      designerSelector.list.push({
+      designerSelector.list[designer] = {
         lastName: designerJson[designer].name.split(' ')[1],
-        index: designer
-      });
+      };
+
+      $list.append([
+        '<li>',
+          '<a href="#" class="select-designer ' + designer + '">',
+            designerJson[designer].name.split(' ')[1],
+          '</a>',
+        '</li>'
+      ].join(''));
     }
 
     // Mix of all designers
-    /*designerSelector.list.push({
-      lastName: 'All',
-      index: 'all'
-    });*/
+    designerSelector.list['all'] = {
+      lastName: 'All'
+    };
 
     markov['all'] = new Markov({
       inputText: allDesignerQuotes.join(' '),
       endWithCompleteSentence: true
     });
+
+    $list.prepend('<li><a href="#" class="select-designer all">All</a></li>');
 
     return markov;
   }
