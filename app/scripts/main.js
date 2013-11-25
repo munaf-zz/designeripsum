@@ -45,11 +45,11 @@ require(['app', 'jquery'], function(app, $) {
   function selectDesigner(name) {
     designerSelector.selected = name;
     $('.selected').removeClass('selected');
-    $(this).addClass('selected');
+    $('.' + name).addClass('selected');
   }
 
   function generateText() {
-    var numWords = 30 + Math.floor(Math.random() * 50),
+    var numWords = 30 + Math.floor(Math.random() * 30),
         selected = designerSelector.selected, 
         newText; console.log(designers);
 
@@ -82,7 +82,7 @@ require(['app', 'jquery'], function(app, $) {
         paragraph = '';
 
     while (numWords > 0) {
-      sentenceLength = Math.floor(Math.random()*2) + 3;
+      sentenceLength = Math.floor(Math.random()*2) + 2;
       paragraph += addSentence(sentenceLength) + ' ';
       numWords -= sentenceLength;
     }
@@ -142,8 +142,8 @@ require(['app', 'jquery'], function(app, $) {
     }
 
     // Mix of all designers
-    designerSelector.list['all'] = {
-      lastName: 'All'
+    designerSelector.list['mix'] = {
+      lastName: 'Mix'
     };
 
     markov['all'] = new Markov({
@@ -151,13 +151,14 @@ require(['app', 'jquery'], function(app, $) {
       endWithCompleteSentence: true
     });
 
-    $list.prepend('<li><a href="#" class="select-designer all">All</a></li>');
+    $list.prepend('<li><a href="#" class="select-designer all">Mix</a></li>');
+    $list.append('<li><a href="#" class="select-designer buzzwords">Buzzwords</a></li>');
 
     return markov;
   }
 
   // Code adapted from: http://stackoverflow.com/a/987376
-  // Stolen from downtonipsum.com :-)
+  // And from downtonipsum.com :-)
   function selectText(element) {
 
     var doc = document,
@@ -180,7 +181,7 @@ require(['app', 'jquery'], function(app, $) {
   };
 
   // Code adapted from: http://help.dottoro.com/ljigixkc.php
-  // Stolen from downtonipsum.com :-)
+  // And from downtonipsum.com :-)
   function deselectText() {
     if (window.getSelection) {  // All browsers, except <= IE8
       var selection = window.getSelection();                                        
