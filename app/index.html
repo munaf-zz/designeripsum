@@ -58,7 +58,7 @@
     <!-- Footer -->
     <footer class="row">
         <div class="large-8 large-offset-2 columns footer-content">
-            <p><a href="http://www.twitter.com/munafassaf" title="Created by @munafassaf" target="_blank">@munafassaf</a>
+            <p><a href="http://www.twitter.com/munafassaf" id="twitter-link" title="Created by @munafassaf" target="_blank">@munafassaf</a>
             </p>
             <p class="info">Generated from actual designer quotes.</p>
         </div>
@@ -90,8 +90,17 @@
         e.src = '//www.google-analytics.com/analytics.js';
         r.parentNode.insertBefore(e, r)
     }(window, document, 'script', 'ga'));
-    ga('create', 'UA-XXXXX-X');
+    ga('create', 'UA-37203715-1');
     ga('send', 'pageview');
+
+    $('#twitter-link').on('click', function() {
+        ga('send', 'event', 'twitter-link', 'click', 'twitter-link');
+    });
+
+    $('.select-designer').on('click', function() {
+        var name = $(this).attr('class').split(' ')[1];
+        ga('send', 'event', 'select-designer', 'click', name);
+    });
     </script>
 
     <!-- build:js scripts/main.js -->
