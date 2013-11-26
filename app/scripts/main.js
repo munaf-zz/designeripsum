@@ -28,7 +28,6 @@ require(['app', 'jquery'], function(app, $) {
     var numWords = 30 + Math.floor(Math.random() * 30),
       selected = designerSelector.selected,
       newText;
-    console.log(designers);
 
     if (selected === 'buzzwords') {
       newText = '<p>' + randomParagraph(numWords) + '</p>';
