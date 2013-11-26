@@ -2,87 +2,101 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Designer Ipsum</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width">
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-        <!-- build:css(.tmp) styles/main.css -->
-        <link rel="stylesheet" href="styles/main.css">
-        <!-- endbuild -->
-        <!-- build:js scripts/vendor/modernizr.js -->
-        <script src="bower_components/modernizr/modernizr.js"></script>
-        <!-- endbuild -->
-    </head>
-    <body>
-        <!--[if lt IE 10]>
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Designer Ipsum</title>
+    <meta name="description" content="Generate designer placeholder text.">
+    <meta name="author" content="Munaf Assaf">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+    <!-- build:js scripts/vendor/modernizr.js -->
+    <script src="bower_components/modernizr/modernizr.js"></script>
+    <!-- endbuild -->
+</head>
+
+<body>
+    <!--[if lt IE 10]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
 
-        <!-- Header -->
-
-      <div class="row">
+    <!-- Header -->
+    <div class="row">
         <div class="large-8 large-offset-2 columns">
-          <h1>Designer Ipsum</h1>
+            <h1>Designer Ipsum</h1>
         </div>
-      </div>
+    </div>
+    <!-- End Header -->
 
-      <!-- End Header -->
 
-
-      <!-- Main Page Content -->
-<div class="row">
-        <div class="large-8 large-offset-2 columns button-container" role="content">
-            <a href="#" class="add-button">+</a><a href="#" class="remove-button">-</a><ul class="designer-list"></ul>
+    <!-- Main Page Content -->
+    <div class="row">
+        <div class="large-8 large-offset-2 columns menu-container" role="content">
+            <ul class="nav-list">
+                <li><a href="#" class="add-button" title="Add a paragraph to the top">+</a>
+                </li>
+                <li><a href="#" class="remove-button" title="Remove the first paragraph">-</a>
+                </li>
+            </ul>
         </div>
-      </div>
-      <div class="row">
+    </div>
+    <div class="row">
         <div class="large-8 large-offset-2 columns" role="content">
-          <article></article>
+            <article></article>
         </div>
-      </div>
-      
+    </div>
+    <!-- End Main Content -->
 
-      <!-- End Main Content -->
-
-
-      <!-- Footer -->
-
-      <footer class="row">
+    <!-- Footer -->
+    <footer class="row">
         <div class="large-8 large-offset-2 columns footer-content">
-          <hr />
-          <p><a href="http://www.twitter.com/munafassaf" target="_blank">@munafassaf</a></p><p class="info">Generated using <a href="" target="_blank">actual designer quotes</a>. Also, <a href="https://github.com/munaf/markov.js" target="_blank">science</a>.</p>
+            <p><a href="http://www.twitter.com/munafassaf" title="Created by @munafassaf" target="_blank">@munafassaf</a>
+            </p>
+            <p class="info">Generated from actual designer quotes.</p>
         </div>
-      </footer>
+    </footer>
 
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/jquery.js"></script>
+    <script src="scripts/markov.min.js"></script>
+    <script src="bower_components/foundation/js/foundation/foundation.js"></script>
+    <script src="bower_components/foundation/js/foundation/foundation.dropdown.js"></script>
+    <script>
+        $(document).foundation();
+    </script>
+    <!-- endbower -->
+    <!-- endbuild -->
 
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+    (function(b, o, i, l, e, r) {
+        b.GoogleAnalyticsObject = l;
+        b[l] || (b[l] =
+            function() {
+                (b[l].q = b[l].q || []).push(arguments)
+            });
+        b[l].l = +new Date;
+        e = o.createElement(i);
+        r = o.getElementsByTagName(i)[0];
+        e.src = '//www.google-analytics.com/analytics.js';
+        r.parentNode.insertBefore(e, r)
+    }(window, document, 'script', 'ga'));
+    ga('create', 'UA-XXXXX-X');
+    ga('send', 'pageview');
+    </script>
 
-        <!-- build:js scripts/vendor.js -->
-        <!-- bower:js -->
-        <script src="bower_components/jquery/jquery.js"></script>
-        <script src="scripts/markov.min.js"></script>
-        <script src="bower_components/foundation/js/foundation/foundation.js"></script>
-        <script src="bower_components/foundation/js/foundation/foundation.dropdown.js"></script>
-        <script>$(document).foundation();</script>
-        <!-- endbower -->
-        <!-- endbuild -->
-
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-        <script>
-            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-            e.src='//www.google-analytics.com/analytics.js';
-            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-XXXXX-X');ga('send','pageview');
-        </script>
-
-        <!-- build:js scripts/main.js -->
-        <script data-main="scripts/main" src="bower_components/requirejs/require.js"></script>
-        <!-- endbuild -->
+    <!-- build:js scripts/main.js -->
+    <script data-main="scripts/main" src="bower_components/requirejs/require.js"></script>
+    <!-- endbuild -->
 </body>
+
 </html>
