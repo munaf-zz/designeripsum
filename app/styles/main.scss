@@ -1,5 +1,13 @@
 @import "../bower_components/foundation/scss/normalize.scss";
-@import "../bower_components/foundation/scss/foundation.scss";
+@import "../bower_components/foundation/scss/foundation/_variables.scss";
+@import "../bower_components/foundation/scss/foundation/components/_global.scss";
+@import "../bower_components/foundation/scss/foundation/components/_grid.scss";
+@import "../bower_components/foundation/scss/foundation/components/_visibility.scss";
+@import "../bower_components/foundation/scss/foundation/components/_block-grid.scss";
+@import "../bower_components/foundation/scss/foundation/components/_type.scss";
+@import "../bower_components/foundation/scss/foundation/components/_inline-lists.scss";
+
+//@import "../bower_components/foundation/scss/foundation.scss";
 
 $bodyBackground: #fefefe;
 $insertParagraphThickness: 3px;
