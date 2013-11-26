@@ -1,0 +1,104 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Designer Ipsum</title>
+    <meta name="description" content="Generate designer placeholder text.">
+    <meta name="author" content="Munaf Assaf">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+    <!-- build:js scripts/vendor/modernizr.js -->
+    <script src="bower_components/modernizr/modernizr.js"></script>
+    <!-- endbuild -->
+</head>
+
+<body>
+    <!--[if lt IE 10]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+
+    <!-- Header -->
+    <div class="row">
+        <div class="large-8 large-offset-2 columns">
+            <h1>Designer Ipsum</h1>
+        </div>
+    </div>
+    <!-- End Header -->
+
+
+    <!-- Main Page Content -->
+    <div class="row">
+        <div class="large-8 large-offset-2 columns menu-container" role="content">
+            <ul class="nav-list">
+                <li><a href="#" class="add-button" title="Add a paragraph to the top">&#43;</a>
+                </li>
+                <li><a href="#" class="remove-button" title="Remove the first paragraph">−</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="large-8 large-offset-2 columns" role="content">
+            <article></article>
+        </div>
+    </div>
+    <!-- End Main Content -->
+
+    <!-- Footer -->
+    <footer class="row">
+        <div class="large-8 large-offset-2 columns footer-content">
+            <p><a href="http://www.twitter.com/munafassaf" id="twitter-link" title="Created by @munafassaf" target="_blank">@munafassaf</a>
+            </p>
+            <p class="info">Generated from actual designer quotes.</p>
+        </div>
+    </footer>
+
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/jquery.js"></script>
+    <script src="scripts/markov.min.js"></script>
+    <script src="bower_components/foundation/js/foundation/foundation.js"></script>
+    <script src="bower_components/foundation/js/foundation/foundation.dropdown.js"></script>
+    <script>
+        $(document).foundation();
+    </script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-37203715-1');  // Replace with your property ID.
+        ga('send', 'pageview');
+
+        $('#twitter-link').on('click', function() {
+            ga('send', 'event', 'twitter-link', 'click', 'twitter-link');
+        });
+
+        $('.select-designer').on('click', function() {
+            var name = $(this).attr('class').split(' ')[1];
+            ga('send', 'event', 'select-designer', 'click', name);
+        });
+    </script>
+
+    <!-- build:js scripts/main.js -->
+    <script data-main="scripts/main" src="bower_components/requirejs/require.js"></script>
+    <!-- endbuild -->
+</body>
+
+</html>
